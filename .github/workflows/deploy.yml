@@ -1,0 +1,21 @@
+name: Auto Deploy to cPanel via FTP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  web-deploy:
+    name: Sync to Website
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: FTP Deploy
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: sg2plzcpnl508652.prod.sin2.secureserver.net
+        username: deploy@7pd.c2d.mytemp.website
+        password: Uniqpal@2026
